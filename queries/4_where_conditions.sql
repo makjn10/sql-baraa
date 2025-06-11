@@ -65,15 +65,22 @@ from customers
 where country IN ('Germany', 'USA');
 -- We can use OR operator also but prefer IN
 
--- Find all customers whose name start with M
+-- Find all customers whose name start with 'M'
 select *
 from customers
 where first_name like 'M%';
 
--- Find all the customers whose first name ends with n
+-- Find all the customers whose first name ends with 'n'
 select *
 from customers
 where first_name like '%n';
 
+-- Find all the customers whose first name contains 'r'
+select *
+from customers 
+where first_name like '%r%';
 
-
+-- Find all customers whose first name has a 'r' in the third position
+select * 
+from customers 
+where first_name like '__r%';
