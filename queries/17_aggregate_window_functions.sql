@@ -156,3 +156,14 @@ select
     max(sales) over() as maxsales,
     sales - max(sales) over() as maxsalesdeviation
 from orders;
+
+-- Running and rolling total
+-- Caalculate the moving average of sales for each product overtime
+
+select 
+	orderid,
+    productid,
+    sales,
+    orderdate,
+    round(avg(sales) over(partition by productid order by orderdate asc), 2)as movingAverage
+from orders;
